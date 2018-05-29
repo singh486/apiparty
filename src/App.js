@@ -11,7 +11,7 @@ class App extends Component {
           <h3> Ain't no party like an API Party </h3>
           <h1> API Party </h1>
         </div>
-        <ul className="navLink">
+        <ul className="navLinks">
           <li> 
             <NavLink to='/github'>Github API </NavLink>
           </li>

@@ -7,38 +7,44 @@ class Pixabay extends Component{
         super(props)
 
         this.state={
-            image: {}
+            image: {},
+            hit: 0,
         }
 
-        this.fetchUserData(props)
+        this.fetchUserData(props, this.state.hit)
     }
 
     componentWillReceiveProps = (newProps) =>{
         const locationChanged = newProps.location !== this.props.location
         if(locationChanged){
-            this.fetchUserData(newProps)
+            this.fetchUserData(newProps, 0)
         }
     }
 
-    fetchUserData = (props)=>{
+    fetchUserData = (props, num)=>{
         fetch(`https://pixabay.com/api/?key=9139160-c4c28de0fda4b134e635f8b41&q=${props.match.params.search}&image_type=photo`)
             .then(response => response.json())
             .then(data => {
-                let image = {}
-                if(data.totalHits > 0){
-                    image = {
-                        url: data.hits[0].largeImageURL
+                let info = {}
+                if(data.totalHits > num){
+                    info = {
+                        url: data.hits[num].largeImageURL,
+                        pixUrl: data.hits[num].pageURL,
                     }
                 }
-
-                this.setState({ image })
+                this.setState({ image: info })
             })
     }
     render(){
         const {image} = this.state
         return(
             <div className="Image">
-                <img id="result"src= {image.url} alt=""/>
+                <img id="result"
+                    src= {image.url} 
+                    alt="" 
+                />
+                <br></br>
+                <a id="link" href={image.pixUrl} target="_blank">Link to Pixabay page</a>
                 {/* <h2>{user.login}</h2>
                 <h3>followers: {user.followers}</h3>
                 <h3>following: {user.following}</h3>

@@ -2,4 +2,9 @@
     align-content: center;
     width: 100%;
     max-width: 500px;
+    margin-bottom: 16px;
+}
+
+#link{
+    align-content: center;
 }

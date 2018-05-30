@@ -16,8 +16,7 @@ class Github extends Component {
     handleSubmit = (ev) =>{
         ev.preventDefault()
         this.props.history.push(`/homework/${this.state.search}`)
-
-        this.setState({search: ''})
+        ev.target.reset()
     }
   render() {
     return (

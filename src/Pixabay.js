@@ -30,6 +30,7 @@ class Pixabay extends Component{
                     info = {
                         url: data.hits[num].largeImageURL,
                         pixUrl: data.hits[num].pageURL,
+                        tags: data.hits[num].tags,
                     }
                 }
                 this.setState({ image: info })
@@ -43,7 +44,7 @@ class Pixabay extends Component{
                     src= {image.url} 
                     alt="" 
                 />
-                <br></br>
+                <h3>Tags: {image.tags}</h3>
                 <a id="link" href={image.pixUrl} target="_blank">Link to Pixabay page</a>
                 {/* <h2>{user.login}</h2>
                 <h3>followers: {user.followers}</h3>

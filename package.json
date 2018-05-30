@@ -2,9 +2,8 @@
   "name": "apiparty",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://singh486.github.io/apiparty/",
+  "homepage": "https://singh486.github.io/apiparty/",
   "dependencies": {
-    "gh-pages": "^1.1.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-router-dom": "^4.2.2",
@@ -12,6 +11,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -19,5 +19,8 @@
   },
   "esLintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
   }
 }
